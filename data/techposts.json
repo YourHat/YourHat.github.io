@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "ai-ml-dl-gai-explained",
+    "title": "AI, Machine Learning, Deep Learning and Generative AI Explained",
+    "categories": [ "AI", "ML" ],
+    "date": "2025-05-26",
+    "excerpt": "Exploring the ethical considerations of deploying AI in modern society.",
+    "type": "video"
+  },
+  {
+    "slug": "whatisai",
+    "title": "What is artificial intelligence (AI)?",
+    "categories": [ "AI" ],
+    "date": "2025-05-30",
+    "excerpt": "IBM explaining artificial intelligence.",
+    "type": "blog"
+  }
+]
