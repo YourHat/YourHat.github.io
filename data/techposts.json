@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "whatisai",
+    "title": "What is artificial intelligence (AI)?",
+    "categories": [ "AI" ],
+    "date": "2025-06-22",
+    "excerpt": "IBM explaining artificial intelligence.",
+    "type": "blog"
+  },
+  {
+    "slug": "whatisml",
+    "title": "What is machine learning?",
+    "categories": [ "AI", "ML" ],
+    "date": "2025-08-11",
+    "excerpt": "IBM explaining Machine Learning.",
+    "type": "blog"
+  },
+  {
+    "slug": "whatisml",
+    "title": "What is Deep Learning?",
+    "categories": [ "AI", "ML", "DL" ],
+    "date": "2025-08-17",
+    "excerpt": "IBM explaining Deep Learning.",
+    "type": "blog"
+  },
+  {
+    "slug": "whatisfluentvalidation",
+    "title": "What is Fluent Validation?",
+    "categories": [ ".Net" ],
+    "date": "2025-09-02",
+    "excerpt": "Medium explaining Fluent Validation with .net core.",
+    "type": "blog"
+  }
+]
