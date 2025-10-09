@@ -1,0 +1,459 @@
+﻿:root {
+    --bg: #FFFBF2;
+    --text: #0F172A;
+    --accent: #0567A8;
+    --accent-strong: #1c86b3; /* hover */
+    --accent-soft: #60e3d5; /* subtle outlines/gradients */
+
+    --headline: "Pacifico", cursive;
+    --display: "Monoton", sans-serif;
+    --ui: "Quicksand", "Baloo 2", sans-serif;
+    --body: "Raleway", "M PLUS Rounded 1c", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    /* dark, high-contrast palette */
+    --cb-bg: #02030a; /* near-black navy */
+    --cb-text: #eaf6ff; /* soft white-blue text */
+    --cb-border: #404040; /* deep border */
+    --cb-tag-bg: #060b16; /* caption pill bg */
+    --cb-tag-border: #132235; /* caption pill border */
+    --cb-scroll: #1f314a; /* scrollbar thumb */
+    --cb-radius: 10px;
+    --cb-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+
+.skills { max-width: 720px; margin: 2rem auto 4rem; padding: 0 1rem; }
+.skills-title { font-family: var(--headline); text-align: center; margin-bottom: .5rem; }
+.skills-legend { text-align: center; font-size: .9rem; color: #6b7280; margin-bottom: .75rem; }
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto; /* label | bar | max */
+  gap: 1rem;
+  align-items: center;
+  padding: .6rem .4rem;
+}
+.skill-label { display: flex; align-items: baseline; gap: .5rem; }
+.skill-name { font-weight: 700; }
+.skill-years { color: #6b7280; font-size: .9rem; }
+.skill-max { font-variant-numeric: tabular-nums; color: #475569; font-size: .85rem; min-width: 3.5rem; text-align: right; }
+
+.skill-bar {
+  position: relative; height: 12px; border-radius: 999px; overflow: hidden;
+  background: rgba(5,103,168,.15);
+  box-shadow: inset 0 0 0 1px rgba(5,103,168,.15);
+}
+.skill-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  border-right: 1px solid rgba(0,0,0,.08);
+}
+
+
+.projects { max-width: 1100px; margin: 3rem auto 4rem; padding: 0 1rem; }
+.projects-title { font-family: var(--headline); text-align: center; margin-bottom: 1.25rem; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+.project-card {
+  grid-column: span 6; /* 2-up on desktop */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(5,103,168,.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.project-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.10); }
+
+.project-thumb { width: 100%; height: 180px; object-fit: contain; background: #f2f5f8; }
+
+.project-body { padding: 1rem 1rem 1.1rem; }
+.project-name { margin: .25rem 0 .35rem; font-size: 1.05rem; font-weight: 700; }
+.project-desc { margin: 0; color: #475569; font-size: .95rem; }
+
+.project-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: .7rem 0 1rem; padding: 0; list-style: none; }
+.tag {
+  padding: .18rem .5rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  color: var(--accent);
+  background: rgba(5,103,168,.08);
+  border: 1px solid rgba(5,103,168,.15);
+}
+
+.project-actions { display: flex; gap: .5rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 36px; padding: 0 .9rem; border-radius: 10px; text-decoration: none;
+  font-weight: 600; letter-spacing: .2px;
+}
+.btn-primary { background: linear-gradient(90deg, var(--accent-soft), var(--accent)); color: #fff; }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-ghost:hover { background: rgba(5,103,168,.08); }
+.experience { max-width: 900px; margin: 3rem auto 4rem; padding: 0 1rem; }
+.experience-title { font-family: var(--headline); text-align: center; margin-bottom: 1.25rem; }
+
+.exp-timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.exp-timeline::before {
+  content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--accent-soft), var(--accent));
+  border-radius: 999px; opacity: .35;
+}
+
+.exp-card {
+  position: relative; margin-left: 2rem; margin-bottom: 1rem;
+  background: #fff; border: 1px solid rgba(5,103,168,.12);
+  border-radius: 16px; padding: 1rem 1rem 0.9rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+.exp-card::before {
+  content: ""; position: absolute; left: -1.2rem; top: 1.1rem; width: 12px; height: 12px;
+  background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px rgba(5,103,168,.15);
+}
+
+.exp-header { display: flex; flex-direction: column; gap: .2rem; margin-bottom: .35rem; }
+.exp-company { font-weight: 800; letter-spacing: .2px; }
+.exp-meta { color: #475569; font-size: .92rem; display: flex; flex-wrap: wrap; gap: .35rem; align-items: baseline; }
+.exp-title { font-weight: 600; color: var(--accent); }
+.exp-dot { opacity: .5; }
+
+.exp-summary { margin: .4rem 0 .6rem; color: #334155; }
+.exp-highlights { margin: 0 0 .75rem 1rem; }
+.exp-highlights li { margin: .2rem 0; }
+
+.exp-skills { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .2rem; }
+.skill-chip {
+  padding: .18rem .55rem; border-radius: 999px; font-size: .78rem;
+  color: var(--accent); background: rgba(5,103,168,.08); border: 1px solid rgba(5,103,168,.15);
+}
+/* responsive: stack on narrow screens */
+
+body {
+    font-family: var(--body);
+}
+
+html,body{background:var(--bg);color:var(--text);}
+
+h1:focus {
+    outline: none;
+}
+
+a, .btn-link {
+    color: #0071c1;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred."
+    }
+
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
+}
+
+    .loading-progress circle {
+        fill: none;
+        stroke: #e0e0e0;
+        stroke-width: 0.6rem;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+    }
+
+        .loading-progress circle:last-child {
+            stroke: #32a5be;
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+}
+
+    .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
+    }
+
+code {
+    color: #c02d76;
+}
+
+.blog-list .blog-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f9f9f9; /* light grey behind each card */
+    border-radius: .25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 1) make the header sit on top, full-width, always fixed */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* remove any plain border-top you had before */
+    border-top: none;
+    /* add a gradient top border via border-image */
+    border-top: 4px solid transparent; /* width of the border */
+    border-image: linear-gradient(to right, var(--accent-soft), var(--accent)) 1;
+    /* shadow just below the border */
+    box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.3);
+    background: var(--bg);
+    color: var(--text);
+    /* animation: headerColorCycle 4s linear infinite; */
+}
+/* 1) Define the cycling keyframes */
+@-webkit-keyframes headerColorCycle {
+    0% {
+        border-image-source: linear-gradient(to right, #60e3d5, #32a5be, #0567a8);
+    }
+
+    25% {
+        border-image-source: linear-gradient(to right,#32a5be, #60e3d5, #32a5be);
+    }
+
+    50% {
+        border-image-source: linear-gradient(to right, #0567a8, #32a5be, #60e3d5);
+    }
+
+    75% {
+        border-image-source: linear-gradient(to right, #32a5be, #0567a8, #32a5be);
+    }
+
+    100% {
+        border-image-source: linear-gradient(to right, #60e3d5, #32a5be, #0567a8);
+    }
+}
+/* 1) Define the cycling keyframes */
+@keyframes headerColorCycle {
+    0% {
+        border-image-source: linear-gradient(to right, #60e3d5, #32a5be, #0567a8);
+    }
+
+    25% {
+        border-image-source: linear-gradient(to right,#32a5be, #60e3d5, #32a5be);
+    }
+
+    50% {
+        border-image-source: linear-gradient(to right, #0567a8, #32a5be, #60e3d5);
+    }
+
+    75% {
+        border-image-source: linear-gradient(to right, #32a5be, #0567a8, #32a5be);
+    }
+
+    100% {
+        border-image-source: linear-gradient(to right, #60e3d5, #32a5be, #0567a8);
+    }
+}
+
+
+
+
+/* 4) Push main content below your fixed header */
+/*    Use margin or padding; here I’m using margin-top */
+.sitehomepage {
+    margin-top: 3rem; /* adjust to exactly your header’s total height */
+}
+
+.postlistpage {
+    margin-top: 3rem;
+}
+
+footer {
+    border-top: 1px solid var(--text);
+}
+.logo-wrapper {
+    position: relative;
+    width: 80%; /* same as your logo width */
+    max-width: 480px;
+    margin: 0 auto; /* centers horizontally */
+    padding-top: 50px; /* add as needed for vertical space */
+}
+
+/* your existing logo rules */
+.home-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2; /* sits in front of the circles */
+}
+
+/* base style for all circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: blink 5s infinite ease-in-out;
+}
+
+/* individual circle sizes, colors, positions & delays */
+.circle1 {
+    width: 40px;
+    height: 40px;
+    background: #60e3d5;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.circle2 {
+    width: 20px;
+    height: 20px;
+    background: #0567a8;
+    top: 50%;
+    left: 100%;
+    animation-delay: 1s;
+}
+
+.circle3 {
+    width: 30px;
+    height: 30px;
+    background: #32A5BE;
+    top: 90%;
+    left: 0%;
+    animation-delay: 2s;
+}
+/* blink keyframes: fade in and out */
+@-webkit-keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.siteaboutpage {
+    margin: 3rem; /* adjust to exactly your header’s total height */
+}
+
+.category-btn {
+    border-radius: 50px; /* pill shape */
+    padding: 0.3rem 0.8rem; /* spacing */
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+    .category-btn.unselected {
+        background: transparent;
+        color: #0567a8;
+        border: 2px solid #0567a8;
+    }
+
+    .category-btn.selected {
+        background: #0567a8;
+        color: #ffffff;
+        border: 2px solid #0567a8;
+    }
+
+.postbody {
+    letter-spacing: normal;
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    color: #333;
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+}
+/* Replace your .btn.btn-linkedin block with this */
+.socials { margin-top: .75rem; display: flex; justify-content: center; }
+
+.btn.btn-linkedin{
+  position: relative;
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: 0 .95rem; height: 40px;
+  border: 0; border-radius: 999px;   /* full pill */
+  color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .2px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  background: none;                   /* gradient on ::before */
+  overflow: hidden;                   /* clip the gradient to rounded corners */
+  isolation: isolate;                 /* fix subpixel bleed on some Safari builds */
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn.btn-linkedin::before{
+  content: "";
+  position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  transform: translateZ(0);           /* nudge WebKit to GPU and avoid edge band */
+  z-index: -1;                        /* sit behind the text */
+}
